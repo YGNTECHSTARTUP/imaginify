@@ -3,6 +3,15 @@
 @tailwind utilities;
  
 @layer base {
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .masonry-grid-item {
+    break-inside: avoid;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
