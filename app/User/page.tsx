@@ -1,12 +1,12 @@
 
 import React from 'react'
-import ImageGen from '../comp/ImageGen'
-import Imageapi from '@/api/imageapi'
+// import ImageGen from '../comp/ImageGen'
+// import Imageapi from '@/api/imageapi'
 
 const page = () => {
   return (
     <div>
-<Imageapi/>
+{/* <Imageapi/> */}
     </div>
   )
 }
