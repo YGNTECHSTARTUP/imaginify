@@ -2,8 +2,7 @@
 import { HfInference } from "@huggingface/inference";
 import Image from "next/image";
 import React, { useState } from 'react';
-import {config} from "dotenv"
-config({path:".env"})
+
 async function blobToBase64(blob: Blob): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
