@@ -17,7 +17,7 @@ const Page = () => {
     ];
   return (
 
-    <div className='flex mt-20  overflow-y-scroll no-scrollbar justify-center items-center min-h-screen min-w-full overflow-hidden'>
+    <div className='flex mt-20   justify-center items-center min-h-screen min-w-full overflow-hidden'>
     <br/>
     <br/>    
         <ParallaxScroll images={imageSources} className='hidden lg:flex justify-center items-center min-h-screen min-w-full ' />

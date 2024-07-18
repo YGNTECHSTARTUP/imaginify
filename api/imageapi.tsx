@@ -2,6 +2,8 @@
 import { HfInference } from "@huggingface/inference";
 import Image from "next/image";
 import React, { useState } from 'react';
+import {config} from "dotenv"
+config({path:".env"})
 async function blobToBase64(blob: Blob): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -17,7 +19,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
     });
   }
 export const generateImage = async (data:string) => {
-    const hf = new HfInference("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");
+    const hf = new HfInference(process.env.HUGGINGFACE_ACCESSTOKEN);
     try {
       const result = await hf.textToImage({
         model: "stabilityai/stable-diffusion-3-medium-diffusers",

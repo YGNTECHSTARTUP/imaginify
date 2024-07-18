@@ -8,6 +8,7 @@ import Image from "next/image"
 import { ImageIcon, WandSparklesIcon } from "lucide-react"
 import { generateImage } from "@/api/imageapi"
 
+
 export default function ImageGen() {
  
   
@@ -18,16 +19,21 @@ export default function ImageGen() {
     setPrompt(e.target.value)
   }
   const generateImages = async (prompt: string) => {
+    if(!prompt || prompt==''){
+      
+      return
+    }
     setIsLoading(true)
     try {
       const res = await generateImage(prompt)
-      setImagesrc(res)  
+      setImagesrc(res!)  
       
     } catch (error) {
       console.error("Error generating image:", error)
     } finally {
       setIsLoading(false)
       setPrompt('')
+       
     }
   }
   return (
@@ -52,8 +58,9 @@ export default function ImageGen() {
             >
               Generate
             </Button>
+           
           </div>
-          <div className="relative aspect-square lg:aspect-[4/3] xl:aspect-[16/9] overflow-hidden rounded-lg">
+          <div className="relative aspect-square lg:aspect-[4/3]  overflow-hidden rounded-lg">
             {isLoading ? (
               <div className="absolute inset-0 flex items-center justify-center bg-muted">
                 <div className="grid gap-4 animate-pulse">
@@ -64,8 +71,8 @@ export default function ImageGen() {
               <Image
                 src={imagesrc}
                 alt="Generated Image"
-                width={512}
-                height={512}
+                width={1024}
+                height={1024}
                 className="object-cover size-full"
               />
             ) : (

@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import NavContent from './comp/NavContent'
 import MobNav from './comp/MobNav'
+import { Toaster } from 'sonner'
 
 
 export const metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 <NavContent/>
 
 {children}
+<Toaster/>
 
 <div className='flex md:hidden'>
 <MobNav/>
