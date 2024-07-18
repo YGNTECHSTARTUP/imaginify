@@ -16,13 +16,15 @@ const Page = () => {
        
     ];
   return (
-    <div className='flex justify-center items-center min-h-screen min-w-full'>
-        
+
+    <div className='flex mt-20  overflow-y-scroll no-scrollbar justify-center items-center min-h-screen min-w-full overflow-hidden'>
+    <br/>
+    <br/>    
         <ParallaxScroll images={imageSources} className='hidden lg:flex justify-center items-center min-h-screen min-w-full ' />
 <div className='container mx-auto mt-20 md:grid-cols-2 md:grid lg:hidden  '>
       {
         images.map((img) =>
-          <Card key={img.id} className=' overflow-hidden container lg:size-fit'>
+          <Card key={img.id} className=' overflow-hidden container lg:size-fit mt-20 '>
             <CardHeader>
               <CardTitle>
                 {img.name}

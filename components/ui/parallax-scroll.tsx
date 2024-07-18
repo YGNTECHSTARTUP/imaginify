@@ -30,7 +30,7 @@ export const ParallaxScroll = ({
 
   return (
     <div
-      className={cn("h-[40rem] items-start overflow-y-auto w-full", className)}
+      className={cn("h-[40rem] items-start overflow-y-scroll no-scrollbar w-full", className)}
       ref={gridRef}
     >
      
@@ -41,7 +41,7 @@ export const ParallaxScroll = ({
         ref={gridRef}
       >
         
-        <div className="grid gap-10">
+        <div className="grid gap-10 no-scrollbar">
           {firstPart.map((el, idx) => (
             <motion.div
               style={{ y: translateFirst }} // Apply the translateY motion value here

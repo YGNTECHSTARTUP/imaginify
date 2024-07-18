@@ -56,8 +56,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 {children}
 
+<div className='flex md:hidden'>
+<MobNav/>
+</div>
 
- <MobNav/>
           </ThemeProvider>
        
       </body>

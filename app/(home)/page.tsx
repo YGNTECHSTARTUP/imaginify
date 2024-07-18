@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className=''>
       <BackgroundGradientAnimation>
-        <div className="absolute z-50 inset-0 flex items-center justify-center text-white dark:text-white font-bold px-4 text-3xl text-center md:text-4xl lg:text-7xl">
+        <div className="absolute z-50 inset-0 mt-20 flex items-center justify-center text-white dark:text-white font-bold px-4 text-3xl text-center md:text-4xl lg:text-7xl">
           <div className=" ">
             <section className="w-full py-24 md:py-32 lg:py-40">
               <div className="container mx-auto flex flex-col items-center justify-center space-y-6 px-4 text-center">

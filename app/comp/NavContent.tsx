@@ -9,11 +9,11 @@ export default function NavContent() {
   const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-background/80 backdrop-blur-md transition-all duration-300">
+    <header className="fixed border-primary border-b-2 top-0 left-0 z-50 w-full bg-background/80 backdrop-blur-md transition-all duration-300">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold" prefetch={false}>
            <Sparkles fill="teal"/>
-          <span className="hover:text-teal-500 hover:underline">Imaginify</span>
+          <span className="dark:hover:text-teal-500 hover:text-teal-900 hover:underline">Imaginify</span>
         </Link>
         <div className="flex items-center gap-4">
           <nav className="hidden items-center gap-4 md:flex ">
@@ -29,7 +29,7 @@ export default function NavContent() {
           <DropdownMenu>
          
             <DropdownMenuTrigger asChild>
-              <Avatar className="h-9 w-9 hidden md:flex">
+              <Avatar className="size-9 hidden md:flex">
                 <AvatarImage src="/placeholder-user.jpg" />
                 <AvatarFallback>YGN</AvatarFallback>
               </Avatar>
