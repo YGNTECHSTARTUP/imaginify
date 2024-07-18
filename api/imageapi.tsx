@@ -1,4 +1,5 @@
 "use client"
+
 import { HfInference } from "@huggingface/inference";
 import Image from "next/image";
 import React, { useState } from 'react';
@@ -18,7 +19,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
     });
   }
 export const generateImage = async (data:string) => {
-    const hf = new HfInference(process.env.HUGGINGFACE_ACCESSTOKEN);
+    const hf = new HfInference(process.env.HUGGINGFACE_ACCESSTOKEN || HUGGINGFACE_ACCESSTOKEN);
     try {
       const result = await hf.textToImage({
         model: "stabilityai/stable-diffusion-3-medium-diffusers",
@@ -56,3 +57,56 @@ const Imageapi = () => {
 };
 
 export default Imageapi;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { HUGGINGFACE_ACCESSTOKEN } from "@/app/constant";

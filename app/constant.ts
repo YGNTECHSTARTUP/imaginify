@@ -1,5 +1,5 @@
 
-
+export const HUGGINGFACE_ACCESSTOKEN="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"
 export const images = [
 {
     id:2,
