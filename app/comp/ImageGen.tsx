@@ -7,7 +7,7 @@ import Image from "next/image"
 import { ImageIcon, Loader2Icon, WandSparklesIcon } from "lucide-react"
 import { generateImage } from "@/api/imageapi"
 import { saveToKV } from "@/api/kv"
-
+export const dynamic = "force-dynamic";
 
 
 export default function ImageGen() {
