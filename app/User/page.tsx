@@ -1,13 +1,12 @@
 
 import React from 'react'
-// import ImageGen from '../comp/ImageGen'
-import Imageapi from '@/api/imageapi'
 
-const page = () => {
+const page = async () => {
+  
+
+  
   return (
-    <div>
-<Imageapi/>
-    </div>
+    <div>page</div>
   )
 }
 

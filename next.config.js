@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        hostname: 'raw.githubusercontent.com',
-      }
-    ]
-  }
-}
+    remotePatterns: [      
+      {hostname:'m8amccffy2k8jwbp.public.blob.vercel-storage.com'}
+    ],
+  },
+  // Add any other necessary Next.js configurations here
+};
+
+module.exports = nextConfig;

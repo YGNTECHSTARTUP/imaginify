@@ -3,39 +3,49 @@
 import { ChangeEvent, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-
 import Image from "next/image"
-import { ImageIcon, WandSparklesIcon } from "lucide-react"
+import { ImageIcon, Loader2Icon, WandSparklesIcon } from "lucide-react"
 import { generateImage } from "@/api/imageapi"
+import { saveToKV } from "@/api/kv"
+
 
 
 export default function ImageGen() {
- 
-  
   const [prompt, setPrompt] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [imagesrc,setImagesrc]=useState('')
+  const [imagesrc, setImagesrc] = useState("")
+  
+
   const handlePromptChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPrompt(e.target.value)
   }
+
   const generateImages = async (prompt: string) => {
-    if(!prompt || prompt==''){
-      
+    if (!prompt.trim()) {
+      alert("Please enter a prompt to generate an image")
       return
     }
     setIsLoading(true)
     try {
       const res = await generateImage(prompt)
-      setImagesrc(res!)  
-      
+      if (!res) {
+        throw new Error("No response from generateImage")
+      }
+      setImagesrc(res)
+      await saveToKV(prompt,res)
+     
+      // Ensure res is a string before compressing
+     
+      // Debugging log
     } catch (error) {
       console.error("Error generating image:", error)
+      alert("Failed to generate image. Please try again later.")
     } finally {
       setIsLoading(false)
-      setPrompt('')
-       
+      setPrompt("")
     }
   }
+
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-background">
       <div className="max-w-md w-full px-4 sm:px-6 lg:px-8 lg:max-w-2xl xl:max-w-3xl">
@@ -49,22 +59,21 @@ export default function ImageGen() {
               type="text"
               placeholder="Enter a prompt..."
               value={prompt}
-              onChange={(e)=>handlePromptChange(e)}
+              onChange={handlePromptChange}
               className="flex-1 px-4 py-2 text-sm bg-muted rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary lg:px-6 lg:py-3 lg:text-base xl:px-8 xl:py-4 xl:text-lg"
             />
             <Button
-              onClick={()=>generateImages(prompt)}
+              onClick={() => generateImages(prompt)}
               className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-md hover:bg-primary/90 focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-1 lg:px-6 lg:py-3 lg:text-base xl:px-8 xl:py-4 xl:text-lg"
             >
-              Generate
+              {isLoading ? <Loader2Icon className="size-4 animate-spin"/> : "Generate"}
             </Button>
-           
           </div>
-          <div className="relative aspect-square lg:aspect-[4/3]  overflow-hidden rounded-lg">
+          <div className="relative aspect-square lg:aspect-[4/3] overflow-hidden rounded-lg">
             {isLoading ? (
               <div className="absolute inset-0 flex items-center justify-center bg-muted">
                 <div className="grid gap-4 animate-pulse">
-                 <WandSparklesIcon size={40}/>
+                  <WandSparklesIcon size={40} />
                 </div>
               </div>
             ) : imagesrc ? (
