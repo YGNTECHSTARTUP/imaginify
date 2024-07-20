@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic"
 
 const page = async () => {
   const user = await currentUser()
-  console.log(user)
+  
   const urls = await kv.lrange(user?.id!,0,-1)
 
   if(urls.length === 0){

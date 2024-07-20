@@ -3,8 +3,9 @@ import Link from "next/link"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { ModeToggle } from "./ToggleButton"
-import { Sparkles } from "lucide-react"
+import { Sparkles, User } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { UserButton } from "@clerk/nextjs"
 export default function NavContent() {
   const pathname = usePathname()
 
@@ -24,26 +25,15 @@ export default function NavContent() {
               Generation
             </Link>
             <ModeToggle/>
+            <Link href="/User" className={`${pathname == "/User"?"text-teal-500 font-extrabold text-xl":"text-primary"}text-sm font-medium "`} prefetch={false}>
+            <User/>
+            </Link>
           </nav>
-         
-          <DropdownMenu>
-         
-            <DropdownMenuTrigger asChild>
-              <Avatar className="size-9 hidden md:flex">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>YGN</AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          
+
+            <UserButton />
           <div className="flex md:hidden">
+          
           <ModeToggle/>
           </div>
         </div>
