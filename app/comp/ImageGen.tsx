@@ -7,6 +7,7 @@ import Image from "next/image"
 import { ImageIcon, Loader2Icon, WandSparklesIcon } from "lucide-react"
 import { generateImage } from "@/api/imageapi"
 import { saveToKV } from "@/api/kv"
+import { revalidatePath } from "next/cache"
 export const dynamic = "force-dynamic";
 
 
@@ -43,6 +44,7 @@ export default function ImageGen() {
     } finally {
       setIsLoading(false)
       setPrompt("")
+      revalidatePath("/Generation")
     }
   }
 
