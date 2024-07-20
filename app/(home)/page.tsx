@@ -17,7 +17,7 @@ const page = () => {
                 <p className="max-w-[700px] text-lg text-white md:text-xl">
                   Unleash your creativity with our powerful image generation tool. Get started now and bring your ideas to life.
                 </p>
-                <Link href="/Explore">
+                <Link href="/Explore" prefetch={true}>
                   <Button variant={'outline'} className='bg-primary text-primary-foreground cursor-pointer z-50' size={'lg'}>
                     Get Started
                   </Button>
