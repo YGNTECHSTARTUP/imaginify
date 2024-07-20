@@ -8,7 +8,9 @@ import { ThemeProvider } from '@/components/theme-provider'
 import NavContent from './comp/NavContent'
 import MobNav from './comp/MobNav'
 import { Toaster } from 'sonner'
-
+import {
+  ClerkProvider,
+} from '@clerk/nextjs'
 
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
@@ -37,7 +39,8 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <ClerkProvider>
+<html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           'font-sans antialiased',
@@ -51,6 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
+            
 <NavContent/>
 
 {children}
@@ -64,5 +68,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
        
       </body>
     </html>
+    </ClerkProvider>
+    
   )
 }

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { ParallaxScroll } from '@/components/ui/parallax-scroll'
 
 import { list } from '@vercel/blob'
-
+export const dynamic = "force-dynamic"
 const Page = async () => {
  
 

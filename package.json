@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.34",
+    "@clerk/nextjs": "^5.2.4",
     "@huggingface/inference": "^2.8.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
