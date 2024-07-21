@@ -1,71 +1,102 @@
-<a href="https://chat.vercel.ai/">
-  <img alt="Next.js 14 and App Router-ready AI chatbot." src="https://chat.vercel.ai/opengraph-image.png">
-  <h1 align="center">Next.js AI Chatbot</h1>
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imaginify README</title>
+</head>
+<body>
+    <h1>Imaginify</h1>
+    <p>Imaginify is a web application that leverages AI to generate images based on user prompts. It uses Hugging Face models for AI image generation and Clerk for user authentication.</p>
 
-<p align="center">
-  An open-source AI chatbot app template built with Next.js, the Vercel AI SDK, OpenAI, and Vercel KV.
-</p>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#running-locally"><strong>Running locally</strong></a> ·
-  <a href="#authors"><strong>Authors</strong></a>
-</p>
-<br/>
+    <h2 id="features">Features</h2>
+    <ul>
+        <li>User authentication with Clerk</li>
+        <li>AI-powered image generation using Hugging Face models</li>
+        <li>Interactive chat interface for prompt input</li>
+        <li>Responsive design with Tailwind CSS</li>
+    </ul>
 
-## Features
+    <h2 id="tech-stack">Tech Stack</h2>
+    <ul>
+        <li><strong>Frontend</strong>: Next.js, React</li>
+        <li><strong>Styling</strong>: Tailwind CSS</li>
+        <li><strong>Authentication</strong>: Clerk</li>
+        <li><strong>AI Integration</strong>: Hugging Face</li>
+        <li><strong>Deployment</strong>: Vercel</li>
+    </ul>
 
-- [Next.js](https://nextjs.org) App Router
-- React Server Components (RSCs), Suspense, and Server Actions
-- [Vercel AI SDK](https://sdk.vercel.ai/docs) for streaming chat UI
-- Support for OpenAI (default), Anthropic, Cohere, Hugging Face, or custom AI chat models and/or LangChain
-- [shadcn/ui](https://ui.shadcn.com)
-  - Styling with [Tailwind CSS](https://tailwindcss.com)
-  - [Radix UI](https://radix-ui.com) for headless component primitives
-  - Icons from [Phosphor Icons](https://phosphoricons.com)
-- Chat History, rate limiting, and session storage with [Vercel KV](https://vercel.com/storage/kv)
-- [NextAuth.js](https://github.com/nextauthjs/next-auth) for authentication
+    <h2 id="installation">Installation</h2>
+    <p>To run the project locally, follow these steps:</p>
+    <ol>
+        <li><strong>Clone the repository</strong>:
+            <pre><code>git clone https://github.com/YGNTECHSTARTUP/imaginify.git
+cd imaginify
+            </code></pre>
+        </li>
+        <li><strong>Install dependencies</strong>:
+            <pre><code>npm install
+            </code></pre>
+        </li>
+        <li><strong>Set up environment variables</strong>:
+            <p>Create a <code>.env.local</code> file in the root directory and add the necessary environment variables (see <a href="#environment-variables">Environment Variables</a>).</p>
+        </li>
+        <li><strong>Run the development server</strong>:
+            <pre><code>npm run dev
+            </code></pre>
+            <p>Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to view it in the browser.</p>
+        </li>
+    </ol>
 
-## Model Providers
+    <h2 id="usage">Usage</h2>
+    <ol>
+        <li><strong>Sign up / Log in</strong>:
+            <p>Use the Clerk-powered authentication to sign up or log in.</p>
+        </li>
+        <li><strong>Generate Images</strong>:
+            <p>Enter a prompt in the chat interface to generate an image using the Hugging Face model.</p>
+        </li>
+    </ol>
 
-This template ships with OpenAI `gpt-3.5-turbo` as the default. However, thanks to the [Vercel AI SDK](https://sdk.vercel.ai/docs), you can switch LLM providers to [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), [Hugging Face](https://huggingface.co), or using [LangChain](https://js.langchain.com) with just a few lines of code.
+    <h2 id="environment-variables">Environment Variables</h2>
+    <p>The following environment variables need to be set up in your <code>.env.local</code> file:</p>
+    <pre><code>
+NEXT_PUBLIC_CLERK_FRONTEND_API=&lt;your-clerk-frontend-api&gt;
+CLERK_API_KEY=&lt;your-clerk-api-key&gt;
+NEXT_PUBLIC_HUGGING_FACE_API_KEY=&lt;your-hugging-face-api-key&gt;
+    </code></pre>
 
-## Deploy Your Own
+    <h2 id="contributing">Contributing</h2>
+    <p>Contributions are welcome! Follow these steps to contribute:</p>
+    <ol>
+        <li>Fork the repository.</li>
+        <li>Create a new branch (<code>git checkout -b feature/your-feature-name</code>).</li>
+        <li>Make your changes.</li>
+        <li>Commit your changes (<code>git commit -m 'Add some feature'</code>).</li>
+        <li>Push to the branch (<code>git push origin feature/your-feature-name</code>).</li>
+        <li>Open a pull request.</li>
+    </ol>
 
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
+    <h2 id="license">License</h2>
+    <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for more information.</p>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js+Chat&demo-description=A+full-featured%2C+hackable+Next.js+AI+chatbot+built+by+Vercel+Labs&demo-url=https%3A%2F%2Fchat.vercel.ai%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4aVPvWuTmBvzM5cEdRdqeW%2F4234f9baf160f68ffb385a43c3527645%2FCleanShot_2023-06-16_at_17.09.21.png&project-name=Next.js+Chat&repository-name=nextjs-chat&repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot&from=templates&skippable-integrations=1&env=OPENAI_API_KEY%2CAUTH_SECRET&envDescription=How+to+get+these+env+vars&envLink=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot%2Fblob%2Fmain%2F.env.example&teamCreateStatus=hidden&stores=[{"type":"kv"}])
-
-## Creating a KV Database Instance
-
-Follow the steps outlined in the [quick start guide](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) provided by Vercel. This guide will assist you in creating and configuring your KV database instance on Vercel, enabling your application to interact with it.
-
-Remember to update your environment variables (`KV_URL`, `KV_REST_API_URL`, `KV_REST_API_TOKEN`, `KV_REST_API_READ_ONLY_TOKEN`) in the `.env` file with the appropriate credentials provided during the KV database setup.
-
-## Running locally
-
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various OpenAI and authentication provider accounts.
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Your app template should now be running on [localhost:3000](http://localhost:3000/).
-
-## Authors
-
-This library is created by [Vercel](https://vercel.com) and [Next.js](https://nextjs.org) team members, with contributions from:
-
-- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - [Vercel](https://vercel.com)
-- Shu Ding ([@shuding\_](https://twitter.com/shuding_)) - [Vercel](https://vercel.com)
-- shadcn ([@shadcn](https://twitter.com/shadcn)) - [Vercel](https://vercel.com)
+    <h2 id="contact">Contact</h2>
+    <ul>
+        <li><strong>Portfolio</strong>: <a href="https://ygntech.vercel.app/" target="_blank">ygntech.vercel.app</a></li>
+        <li><strong>Project</strong>: <a href="https://ygn-imaginify.vercel.app/" target="_blank">ygn-imaginify.vercel.app</a></li>
+        <li><strong>GitHub</strong>: <a href="https://github.com/YGNTECHSTARTUP/imaginify/" target="_blank">github.com/YGNTECHSTARTUP/imaginify</a></li>
+    </ul>
+</body>
+</html>
