@@ -39,7 +39,7 @@ const page = async () => {
     
   
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-background ">
+    <div className="flex flex-col items-center justify-center h-screen bg-background mt-[20%] ">
     <div className="bg-card p-6 rounded-xl shadow-lg w-full max-w-4xl lg:max-w-6xl dark:shadow-white">
       <div className="flex flex-col items-center space-y-4">
        
