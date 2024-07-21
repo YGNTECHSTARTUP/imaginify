@@ -17,11 +17,7 @@ const Page = async () => {
   async function urlToImage() {
     const data = await allImages();
     const imageSourcesPromises = data.blobs.map(async (img) => {
-      const imageResponse = await fetch(img.url, {
-        method: 'GET',
-      });
-      const newImage = await imageResponse.text();
-      return newImage;
+      return img.url
     });
     const imageSources = await Promise.all(imageSourcesPromises);
     return imageSources;

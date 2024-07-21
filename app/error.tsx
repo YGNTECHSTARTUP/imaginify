@@ -9,7 +9,7 @@ export default function Error({error}:{error:Error}) {
         <FrownIcon className="mx-auto size-12 text-primary" />
         <h1 className="mt-4 text-6xl font-bold tracking-tight text-foreground">404</h1>
         <p className="mt-4 text-muted-foreground">Oops, the page you are looking for does not exist.</p>
-     <p className="mt-4 text-muted-foreground">{error.message}</p>
+     {/* <p className="mt-4 text-muted-foreground">{error.message}</p> */}
         <div className="mt-6">
           <Link
             href="/"

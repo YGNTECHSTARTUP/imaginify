@@ -12,7 +12,7 @@ export default clerkMiddleware(async(auth,req)=>{
   if(isPrivateRoute(req)){
     auth().protect()
 }
-  if(req.nextUrl.pathname.startsWith('/Generation')){
+  if(req.nextUrl.pathname.startsWith('/api/Generate-image')){
     const ip = ipAddress(req) || '127.0.0.1'
     const {success} = await ratelimit.limit(ip)
     

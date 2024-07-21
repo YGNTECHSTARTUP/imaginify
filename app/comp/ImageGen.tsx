@@ -5,9 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { ImageIcon, Loader2Icon, WandSparklesIcon } from "lucide-react"
-import { generateImage } from "@/api/imageapi"
-import { saveToKV } from "@/api/kv"
-import { revalidatePath } from "next/cache"
+
+
 export const dynamic = "force-dynamic";
 
 
@@ -28,23 +27,20 @@ export default function ImageGen() {
     }
     setIsLoading(true)
     try {
-      const res = await generateImage(prompt)
+      const res = await fetch('/api/Generate-image?prompt=' + prompt,{
+        method:'GET'
+      }).then((res)=>res.text())
       if (!res) {
         throw new Error("No response from generateImage")
       }
       setImagesrc(res)
-      await saveToKV(prompt,res)
      
-      // Ensure res is a string before compressing
-     
-      // Debugging log
     } catch (error) {
       console.error("Error generating image:", error)
       alert("Failed to generate image. Please try again later.")
     } finally {
       setIsLoading(false)
       setPrompt("")
-      revalidatePath("/Generation")
     }
   }
 

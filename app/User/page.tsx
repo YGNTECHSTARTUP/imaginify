@@ -1,6 +1,6 @@
 
 
-import { Card, CardContent } from '@/components/ui/card';
+
 import { currentUser } from '@clerk/nextjs/server';
 import { kv } from '@vercel/kv';
 import Image from 'next/image';
@@ -29,11 +29,8 @@ const page = async () => {
   }
    
   const imageSources = urls.map(async (url:string)=>{
-    const res = await fetch(url,{
-      method:'GET',
-    })
-    const newImage = await res.text()
-    return newImage
+
+    return url
   })
 
   const images = await Promise.all(imageSources)
