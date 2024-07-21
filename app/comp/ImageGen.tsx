@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export default function ImageGen() {
   const [prompt, setPrompt] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [imagesrc, setImagesrc] = useState("")
+  const [imagesrc, setImagesrc] = useState("/ratelimit.png")
   
 
   const handlePromptChange = (e: ChangeEvent<HTMLInputElement>) => {
