@@ -95,4 +95,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **GitHub**: [github.com/YGNTECHSTARTUP/imaginify](https://github.com/YGNTECHSTARTUP/imaginify/)
 ```
 
-You can copy and paste this content into your `README.md` file in your GitHub repository. Let me know if you need any further adjustments!
+
