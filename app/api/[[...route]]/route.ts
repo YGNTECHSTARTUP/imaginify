@@ -3,9 +3,11 @@
 import { currentUser } from '@clerk/nextjs/server';
 import { HfInference } from '@huggingface/inference'
 import { put } from '@vercel/blob'
+import { next } from "@vercel/edge";;
 import { kv } from '@vercel/kv'
 import {Hono} from 'hono'
 import { handle} from "hono/vercel"
+import { NextResponse } from 'next/server';
 
 
 
@@ -51,9 +53,13 @@ app.get('/Generate-image',async (c)=>{
               })
               const blobUrl = blob.url
               console.log(blobUrl)
+              if(!blobUrl){
+                return NextResponse.rewrite(new URL('/blocked', c.req.url))
+              }
           await kv.rpush(user.userId,blobUrl)
           await kv.hset(user.sessionId,user)
-          return c.text(blobUrl)
+          
+          return c.text(blobUrl) 
         }
          
     }

@@ -3,6 +3,7 @@ import { Ratelimit } from "@upstash/ratelimit";
 import { next } from "@vercel/edge";
 import { ipAddress } from "@vercel/functions";
 import { kv } from "@vercel/kv";
+import { NextResponse } from "next/server";
 const isPrivateRoute = createRouteMatcher(["/User","/Generation"])
 const ratelimit = new Ratelimit({
   redis:kv,
@@ -16,7 +17,7 @@ export default clerkMiddleware(async(auth,req)=>{
     const ip = ipAddress(req) || '127.0.0.1'
     const {success} = await ratelimit.limit(ip)
     
-    return success ? next() : Response.redirect(new URL('/blocked', req.url))
+    return success ? next(): NextResponse.rewrite(new URL('/blocked', req.url))
     }
    
 
