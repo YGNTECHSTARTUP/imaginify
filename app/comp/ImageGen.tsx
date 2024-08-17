@@ -46,7 +46,7 @@ export default function ImageGen() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-background">
-      <div className="max-w-md w-full px-4 sm:px-6 lg:px-8 lg:max-w-2xl xl:max-w-3xl">
+      <div className="max-w-md w-full px-4 sm:px-6 xl:px-8 lg:max-w-2xl lg:mt-20 xl:max-w-3xl">
         <div className="grid gap-6">
           <div className="grid gap-2">
             <h1 className="text-3xl font-bold text-foreground lg:text-4xl xl:text-5xl">Image Generator</h1>
